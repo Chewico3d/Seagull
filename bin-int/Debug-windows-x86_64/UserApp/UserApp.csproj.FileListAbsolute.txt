@@ -1,6 +1,0 @@
-C:\Chewico\Projects\Seagull\bin\Debug-windows-x86_64\UserApp\UserApp.dll
-C:\Chewico\Projects\Seagull\bin\Debug-windows-x86_64\UserApp\UserApp.pdb
-C:\Chewico\Projects\Seagull\bin-int\Debug-windows-x86_64\UserApp\UserApp.csproj.AssemblyReference.cache
-C:\Chewico\Projects\Seagull\bin-int\Debug-windows-x86_64\UserApp\UserApp.csproj.CoreCompileInputs.cache
-C:\Chewico\Projects\Seagull\bin-int\Debug-windows-x86_64\UserApp\UserApp.dll
-C:\Chewico\Projects\Seagull\bin-int\Debug-windows-x86_64\UserApp\UserApp.pdb
