@@ -12,11 +12,35 @@ project "Seagull"
 	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
 	objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
 
-	files {"**.cpp", "**.h"}
+	files {"%{prj.name}/src/**.cpp", "%{prj.name}/src/**.h"}
 
 	includedirs {
-		"%{prj.name}/src"
+		"%{prj.name}/src",
+		"%{prj.name}/vendor/spdlog/include",
+		"%{prj.name}/vendor/mono/include"
 	}
+	
+	libdirs {
+		"%{prj.name}/vendor/mono/lib/%{cfg.buildcfg}"
+	}
+	
+	postbuildcommands {
+        "{COPYDIR} %{prj.location }\\vendor\\mono\\bin\\%{cfg.buildcfg}\\*.dll %{cfg.buildtarget.directory}\\*.dll",
+		"{COPYDIR} %{prj.location }\\vendor\\mono\\mono-lib %{cfg.buildtarget.directory}\\mono-lib"
+    }
+	
+	links {
+		"eglib.lib",
+		"libgcmonosgen.lib",
+		"libmini-sgen.lib",
+		"libmonoruntime-sgen.lib",
+		"libmono-static-sgen.lib",
+		"libmonoutils.lib",
+		"mono-2.0-sgen.lib",
+		"MonoPosixHelper.lib"
+	}
+	
+	dependson { "UserApp" }
 
 	filter { "configurations:Debug" }
 		defines { "DEBUG" }
@@ -43,7 +67,11 @@ project "UserApp"
 	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
 	objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
 
-	files {"**.cs"}
+	files {"%{prj.name}/**.cs"}
+	
+	postbuildcommands {
+        "{COPYDIR} %{cfg.buildtarget.directory}\\*.dll %{cfg.buildtarget.directory}\\..\\Seagull\\*.dll"
+    }
 
 	filter { "configurations:Debug" }
 		defines { "DEBUG" }
