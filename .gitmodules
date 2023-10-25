@@ -1,0 +1,3 @@
+[submodule "Seagull/vendor/spdlog"]
+	path = Seagull/vendor/spdlog
+	url = https://github.com/gabime/spdlog.git
