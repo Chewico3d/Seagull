@@ -29,3 +29,10 @@
 # Executables
 bin/
 bin-int/
+
+#visual studio files
+.vs/
+*.sln
+*.vcxproj
+*.vcxproj.user
+*.csproj
